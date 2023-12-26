@@ -1,10 +1,19 @@
 require("dotenv").config();
 const express = require("express");
+const mongoose = require("mongoose");
+
+const vetRouter = require("./routers/vet");
 
 const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
+
+app.use(vetRouter);
+
+mongoose.connect(process.env.MONGOURL)
+.then(() => console.log("Connected to MongoDB"))
+.catch(err => console.log(`Can't connecto to MongoDB: ${err}`));
 
 app.get("/", (req, res) => {
     console.log("Hello World!!");
