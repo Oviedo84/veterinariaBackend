@@ -5,6 +5,7 @@ const cors = require("cors");
 
 const vetRouter = require("./routers/vet");
 const patientRouter = require("./routers/patient");
+const medHistRouter = require("./routers/medicalhistory");
 
 const app = express();
 
@@ -14,6 +15,7 @@ app.use(cors());
 
 app.use(vetRouter);
 app.use(patientRouter);
+app.use(medHistRouter);
 
 mongoose.connect(process.env.MONGOURL)
 .then(() => console.log("Connected to MongoDB"))

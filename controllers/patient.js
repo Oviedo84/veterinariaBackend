@@ -1,4 +1,3 @@
-const Patient = require("../models/patient");
 const patientService = require("../services/patient");
 
 exports.getPatients = async function(req, res){
