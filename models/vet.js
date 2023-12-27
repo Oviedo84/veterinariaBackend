@@ -8,13 +8,13 @@ const vetSchema = new mongoose.Schema({
     },
     password: {
         type: String,
-        required: true,
-        minLenght: 8,
-        maxLenght: 18
+        minlenght: 8,
+        required: true
     },
     admin: {
         type: Boolean,
-        default: false
+        default: false,
+        required: true
     }
 });
 

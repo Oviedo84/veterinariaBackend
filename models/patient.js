@@ -26,6 +26,9 @@ const patientSchema = new mongoose.Schema({
         enum: ['macho', 'hembra'],
         required: true
     },
+    picture: {
+        type: String
+    },
     owner_name: {
         type: String,
         required: true
@@ -36,8 +39,12 @@ const patientSchema = new mongoose.Schema({
     },
     phone_number: {
         type: String,
-        minLenght: 10,
-        maxLenght: 10,
+        minlenght: 10,
+        maxlenght: 10,
         required: true
     }
 });
+
+const Patient = mongoose.model('patients', patientSchema);
+
+module.exports = Patient;

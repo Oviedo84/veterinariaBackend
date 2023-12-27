@@ -4,14 +4,16 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 
 const vetRouter = require("./routers/vet");
+const patientRouter = require("./routers/patient");
 
 const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
-app.use(cors);
+app.use(cors());
 
 app.use(vetRouter);
+app.use(patientRouter);
 
 mongoose.connect(process.env.MONGOURL)
 .then(() => console.log("Connected to MongoDB"))
