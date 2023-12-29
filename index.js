@@ -3,6 +3,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 
+const authRouter = require("./routers/auth");
 const vetRouter = require("./routers/vet");
 const patientRouter = require("./routers/patient");
 const medHistRouter = require("./routers/medicalhistory");
@@ -13,6 +14,7 @@ app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 app.use(cors());
 
+app.use(authRouter);
 app.use(vetRouter);
 app.use(patientRouter);
 app.use(medHistRouter);

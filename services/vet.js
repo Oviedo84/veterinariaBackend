@@ -11,6 +11,11 @@ exports.findById = async function(id){
     return vets;
 }
 
+exports.findByUsername = async function(username){
+    const vet = await Vet.findOne({username: username});
+    return vet;
+}
+
 exports.createVet = async function(data){
     data.password = await hash(data.password);
     const vet = new Vet(data);
