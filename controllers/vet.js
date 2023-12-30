@@ -79,3 +79,8 @@ exports.deleteVet = async function(req, res){
         console.log(e);
     }
 }
+
+exports.getVetProfile = function(req, res){
+    const { user } = req;
+    res.status(200).json(user);
+}

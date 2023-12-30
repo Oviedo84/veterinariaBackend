@@ -7,12 +7,17 @@ exports.findAll = async function(){
 }
 
 exports.findById = async function(id){
-    const vets = await Vet.find({_id: id}, {password: 0});
+    const vets = await Vet.findOne({_id: id}, {password: 0});
     return vets;
 }
 
 exports.findByUsername = async function(username){
     const vet = await Vet.findOne({username: username});
+    return vet;
+}
+
+exports.findByUsernameWithoutPassword = async function(username){
+    const vet = await Vet.findOne({username: username}, {password: 0});
     return vet;
 }
 
