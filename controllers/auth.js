@@ -14,6 +14,11 @@ exports.login = async function(req, res){
         });
     }
 
-    const token = jwt.sign({id: __dirname, username: user.username}, process.env.JWT_SECRET);
-    res.status(200).json({jwt: token});
+    const token = jwt.sign({id: user._id, username: user.username}, process.env.JWT_SECRET);
+    res.status(200).json({
+        _id: user._id,
+        username: user.username,
+        admin: user.admin,
+        token: token
+    });
 }
