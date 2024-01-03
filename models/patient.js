@@ -10,14 +10,14 @@ const patientSchema = new mongoose.Schema({
         required: true
     },
     age: {
-        type: Number,
+        type: String,
         required: true
     },
     specie: {
         type: String,
         required: true
     },
-    race: {
+    breed: {
         type: String,
         required: true
     },
